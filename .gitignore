@@ -1,0 +1,8 @@
+data/raw/
+data/original/
+data/kaggle/
+*.keras
+*.tflite
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store

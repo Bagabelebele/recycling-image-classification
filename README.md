@@ -1,34 +1,45 @@
-# Recycling Image Classification Baseline
+# Smart Sort — GA-Optimized Scratch CNN for Recycling Stream Classification
+AIM 350 — Programming for AI · Term Group Project (Topic 3)
 
-This project sorts recycling images into three categories: cans, paper, and plastic.
+Team: Toni Davis (Project Leader) · Yahiya Bagayoko (Data Leader) · Elsa Baires (AI/Programming Leader) · Tara Dickerson (Research Leader)
 
-## 👥 Team Roles
-* ** Toni Davis (Project Leader):** Final report, schedule, presentation.
-* ** Yahiya Bagayoko (Data Lead): ** Local testing, directory management, and script execution.
-* ** Elsa Baires (AI Programming Leader): ** Models, Code, evaluation results.
-* ** Tara Dickerson (Research Leader):** Research section and references.
+Three-class image classifier (`plastic`, `paper_cardboard`, `aluminum`). A genetic algorithm (PyGAD) searches the
+architecture and hyperparameters of a **scratch CNN**, and is compared against a hand-specified baseline CNN and an
+equal-budget random-search control. All three share one split, input size, augmentation and epoch budget.
 
-## 📁 Project Directory Layout
-```text
-Dataset_Project/
-├── test_images/
-│ ├── can/
-│ ├── paper/
-│ └── plastic/
-├── baseline_script.py
-└── requirements.txt
+## Repository layout
+```
+README.md             this file
+DATA_ACCESS.md        how to obtain TrashNet and the team's original photos (images are not committed)
+requirements.txt      pinned Python dependencies
+src/
+  prepare_data.py       class mapping, corrupt-file check, near-duplicate grouping, stratified 70/15/15 split
+  train_baseline.py     baseline scratch CNN (3 seeds) -> results/baseline_metrics.json
+  baselines_classical.py majority-class and HSV-histogram logistic-regression floors
+  ga_search.py          PyGAD search over the scratch CNN + random-search control (not yet run)
+  check_overlap.py      exact / perceptual-hash overlap test between two image folders
+  eval_own_photos.py    tests the baseline on the group's own photos (transfer + 5-fold fine-tuned)
+notebooks/
+  01_baseline_colab.ipynb  runs the pipeline end to end on Google Colab
+results/                metrics JSON, training logs, figures
 ```
 
-## 📊 Model Performance Baseline
-*Metrics generated on September 27, 2026.*
+## Quick start
+```bash
+pip install -r requirements.txt
+python src/prepare_data.py --source data/raw/dataset-resized --out data/manifest.csv
+python src/baselines_classical.py --manifest data/manifest.csv --out results
+python src/train_baseline.py --manifest data/manifest.csv --seeds 42 7 2026 --out results
+```
 
-### Global Metrics
-* **Overall Accuracy:** [INSERT_OVERALL_ACCURACY]%
+## Status
+| Milestone | Status |
+|---|---|
+| Stage 1 baseline on TrashNet-3 proxy | done — see `results/baseline_metrics.json` |
+| Own photo set | 84 collected (31 plastic / 24 paper-cardboard / 29 aluminum); target 160 |
+| Baseline on own photos | done — see `results/own/own_photo_metrics.json` (`src/eval_own_photos.py`) |
+| GA search + random-search control | code ready, run scheduled |
+| Live demo (Streamlit, offline) | not started |
 
-### Category Breakdown
-
-| Category | Precision | Recall | F1-Score |
-| :--- | :--- | :--- | :--- |
-| **Can** | [INSERT_CAN_P]% | [INSERT_CAN_R]% | [INSERT_CAN_F1]% |
-| **Paper** | [INSERT_PAPER_P]% | [INSERT_PAPER_R]% | [INSERT_PAPER_F1]% |
-| **Plastic** | [INSERT_PLASTIC_P]% | [INSERT_PLASTIC_R]% | [INSERT_PLASTIC_F1]% |
+## Contribution rule
+Every member commits under their own GitHub account. Branch per task (`data/…`, `model/…`, `docs/…`), pull request, one reviewer.

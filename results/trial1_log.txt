@@ -1,0 +1,78 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790479258.766082     535 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1790479258.807282     535 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790479260.282867     535 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+sizes {'train': 1323, 'val': 285, 'test': 281} class_weights {0: 1.3047337278106508, 1: 0.6318051575931232, 2: 1.5365853658536586}
+Epoch 1/15
+42/42 - 20s - 470ms/step - accuracy: 0.5049 - loss: 1.0155 - val_accuracy: 0.3930 - val_loss: 1.0676
+Epoch 2/15
+42/42 - 16s - 384ms/step - accuracy: 0.5828 - loss: 0.8911 - val_accuracy: 0.2526 - val_loss: 1.1156
+Epoch 3/15
+42/42 - 21s - 492ms/step - accuracy: 0.6009 - loss: 0.8554 - val_accuracy: 0.4772 - val_loss: 1.0766
+Epoch 4/15
+42/42 - 18s - 421ms/step - accuracy: 0.6387 - loss: 0.8054 - val_accuracy: 0.4035 - val_loss: 1.2240
+Epoch 5/15
+42/42 - 20s - 482ms/step - accuracy: 0.6395 - loss: 0.7825 - val_accuracy: 0.2912 - val_loss: 1.1956
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+                 precision    recall  f1-score   support
+
+        plastic      0.290     0.958     0.445        72
+paper_cardboard      0.884     0.257     0.398       148
+       aluminum      0.000     0.000     0.000        61
+
+       accuracy                          0.381       281
+      macro avg      0.391     0.405     0.281       281
+   weighted avg      0.540     0.381     0.324       281
+
+{
+ "seed": 42,
+ "epochs_run": 5,
+ "best_epoch": 1,
+ "train_seconds": 95.7,
+ "params": 258787,
+ "test_accuracy": 0.3807829181494662,
+ "test_macro_f1": 0.28102234982829477,
+ "per_class_recall": {
+  "plastic": 0.9583333333333334,
+  "paper_cardboard": 0.25675675675675674,
+  "aluminum": 0.0
+ },
+ "per_class_f1": {
+  "plastic": 0.44516129032258067,
+  "paper_cardboard": 0.39790575916230364,
+  "aluminum": 0.0
+ },
+ "confusion_matrix": [
+  [
+   69,
+   3,
+   0
+  ],
+  [
+   110,
+   38,
+   0
+  ],
+  [
+   59,
+   2,
+   0
+  ]
+ ],
+ "abstain_rate_at_0_60": 1.0,
+ "accuracy_on_accepted": null
+}
+Epoch 1/15
+42/42 - 20s - 475ms/step - accuracy: 0.5389 - loss: 0.9792 - val_accuracy: 0.2526 - val_loss: 1.1288
+Epoch 2/15
+42/42 - 17s - 415ms/step - accuracy: 0.5918 - loss: 0.8799 - val_accuracy: 0.5579 - val_loss: 1.0379
+Epoch 3/15
+42/42 - 19s - 450ms/step - accuracy: 0.6311 - loss: 0.8183 - val_accuracy: 0.5018 - val_loss: 1.0872
+Epoch 4/15
