@@ -1,0 +1,5 @@
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.2.0
+pillow>=9.5.0
+matplotlib>=3.7.0
