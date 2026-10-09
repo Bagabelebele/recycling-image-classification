@@ -1,0 +1,28 @@
+{
+  "number_of_new_photos": 3,
+  "correct_predictions": 1,
+  "new_photo_accuracy": 0.3333333333333333,
+  "predictions": [
+    {
+      "file": "plastic.jpg",
+      "actual_class": "plastic",
+      "predicted_class": "aluminum",
+      "confidence": 0.539543867111206,
+      "correct": false
+    },
+    {
+      "file": "cardboard.jpg",
+      "actual_class": "paper_cardboard",
+      "predicted_class": "paper_cardboard",
+      "confidence": 0.9684061408042908,
+      "correct": true
+    },
+    {
+      "file": "can.jpg",
+      "actual_class": "aluminum",
+      "predicted_class": "paper_cardboard",
+      "confidence": 0.9797460436820984,
+      "correct": false
+    }
+  ]
+}
